@@ -16,6 +16,7 @@
 <meta name="twitter:description" content="A calmer way to hand them the screen." />
 <meta name="twitter:image" content="assets/social-preview.jpg" />
 
+<meta name="referrer" content="strict-origin-when-cross-origin" />
 <meta name="theme-color" content="#1d1d1f" />
 <link rel="icon" href="assets/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
@@ -26,23 +27,28 @@
 <a href="#main" class="visually-hidden-focusable" style="position:absolute;left:-9999px;">Skip to content</a>
 
 <!-- ============ NAV ============ -->
-<nav class="site-nav">
-  <div class="wrap">
-    <a href="#main" class="brand">
-      <img src="assets/logo-mark-64.png" alt="" width="28" height="28" />
-      <span class="word">Panda<span class="dash">Dash</span></span>
-    </a>
-    <div class="nav-links">
-      <a href="#features">Features</a>
-      <a href="#pricing">Free &amp; Pro</a>
-      <a href="#community">Community</a>
-      <a href="#faq">FAQ</a>
-    </div>
-    <a href="#download" class="nav-cta">Get the app</a>
+<div class="top-video-wrap" id="main">
+  <div class="bg-video-wrap">
+    <video class="bg-video" muted loop playsinline preload="auto" data-autoplay>
+      <source src="assets/bg-hero.mp4" type="video/mp4" />
+    </video>
   </div>
-</nav>
 
-<main id="main">
+  <nav class="site-nav">
+    <div class="wrap">
+      <a href="#main" class="brand">
+        <img src="assets/logo-mark-64.png" alt="" width="28" height="28" />
+        <span class="word">Panda<span class="dash">Dash</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#pricing">Free &amp; Pro</a>
+        <a href="#community">Community</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a href="#download" class="nav-cta">Get the app</a>
+    </div>
+  </nav>
 
   <!-- ============ HERO ============ -->
   <header class="hero">
@@ -60,10 +66,13 @@
         </div>
       </div>
       <div class="hero-stage">
-        <img src="assets/device-kiosk-main.webp" class="hero-float" alt="PandaDash main screen showing a column of large labeled buttons including YouTube, Spiderman, Cars, and Moana" />
+        <img src="assets/hero-panda-device.webp" class="hero-float" alt="PandaDash main screen, cradled in the panda mark, showing a column of large labeled buttons including YouTube, Spiderman, Cars, and Moana" />
       </div>
     </div>
   </header>
+</div>
+
+<main>
 
   <!-- ============ VIDEO ============ -->
   <section class="bg-mist">
@@ -136,7 +145,12 @@
   </section>
 
   <!-- ============ PRICING ============ -->
-  <section class="bg-mist" id="pricing">
+  <section class="pricing-video-wrap" id="pricing">
+    <div class="bg-video-wrap">
+      <video class="bg-video" muted loop playsinline preload="auto" data-autoplay>
+        <source src="assets/bg-pricing.mp4" type="video/mp4" />
+      </video>
+    </div>
     <div class="wrap">
       <div class="section-head center">
         <p class="eyebrow">Free &amp; Pro</p>

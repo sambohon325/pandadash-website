@@ -68,6 +68,11 @@ a { color: inherit; text-decoration: none; }
   position: sticky;
   top: 0;
   z-index: 50;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+.site-nav.scrolled {
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
@@ -160,8 +165,31 @@ a { color: inherit; text-decoration: none; }
   flex-shrink: 0;
 }
 
+/* ---------- Top video background (nav + hero) ---------- */
+.top-video-wrap {
+  position: relative;
+}
+
+.bg-video-wrap {
+  position: absolute;
+  inset: 0;
+  top: 0; right: 0; bottom: 0; left: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+  background: var(--paper);
+}
+.bg-video-wrap .bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 /* ---------- Hero ---------- */
 .hero {
+  position: relative;
+  z-index: 2;
   padding: 96px 0 90px;
 }
 
@@ -182,6 +210,8 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 18px;
 }
 
+
+
 .hero h1 {
   font-size: clamp(36px, 5vw, 56px);
   line-height: 1.08;
@@ -198,26 +228,17 @@ a { color: inherit; text-decoration: none; }
   margin: 0 0 32px;
 }
 
-/* The "stage": panda logo as the background, with the screen floating
-   centered on top, nestled into the circular swirl. */
+/* The "stage": the panda + screen cutout floats directly over the video. */
 .hero-stage {
   position: relative;
   min-height: 560px;
-  border-radius: 28px;
-  overflow: hidden;
-  background-color: var(--paper);
-  background-image: url(../assets/logo-mark.png);
-  background-size: cover;
-  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .hero-float {
-  width: 76%;
-  margin-top: 46px;
-  filter: drop-shadow(0 28px 34px rgba(0, 0, 0, 0.22)) drop-shadow(0 8px 14px rgba(0, 0, 0, 0.12));
+  width: 86%;
 }
 
 /* ---------- Section scaffolding ---------- */
@@ -263,6 +284,7 @@ section { padding: 96px 0; }
 .video-frame .video-fallback {
   position: absolute;
   inset: 0;
+  top: 0; right: 0; bottom: 0; left: 0;
   width: 100%;
   height: 100%;
   border: 0;
@@ -326,6 +348,21 @@ section { padding: 96px 0; }
 .feature-media img {
   width: 100%;
   filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.14)) drop-shadow(0 6px 10px rgba(0, 0, 0, 0.08));
+}
+
+/* ---------- Pricing section video background ---------- */
+.pricing-video-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.pricing-video-wrap .bg-video-wrap { background: var(--mist); }
+.pricing-video-wrap .section-head .eyebrow,
+.pricing-video-wrap .section-head p {
+  color: #fff;
+}
+.pricing-video-wrap > .wrap {
+  position: relative;
+  z-index: 2;
 }
 
 /* ---------- Pricing cards ---------- */

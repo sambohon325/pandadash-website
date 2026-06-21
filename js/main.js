@@ -1,7 +1,8 @@
 /* ===========================================================
    PandaDash AAC — main.js
-   1) Drop in the YouTube video ID below once it's live.
-   2) Everything else is a light scroll-reveal, nothing fancy.
+   1) Drop in the YouTube video ID below once it's live (demo video).
+   2) Background videos are self-hosted <video> tags — see index.html.
+   3) Everything else is a light scroll-reveal, nothing fancy.
    =========================================================== */
 
 // STEP TO DO LATER: paste your YouTube video ID between the quotes,
@@ -16,11 +17,49 @@ const INTRO_VIDEO_ID = "";
     frame.innerHTML = `<iframe
       src="https://www.youtube.com/embed/${INTRO_VIDEO_ID}?rel=0&modestbranding=1"
       title="PandaDash AAC — intro video"
+      referrerpolicy="strict-origin-when-cross-origin"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
       loading="lazy"></iframe>`;
   }
   // If no ID is set yet, the static fallback already in the HTML is shown.
+})();
+
+/* ---------- Nav: transparent over the hero video, solid once scrolled ---------- */
+(function navScrollState() {
+  const nav = document.querySelector(".site-nav");
+  if (!nav) return;
+
+  function update() {
+    if (window.scrollY > 40) {
+      nav.classList.add("scrolled");
+    } else {
+      nav.classList.remove("scrolled");
+    }
+  }
+
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+})();
+
+/* ---------- Background videos: self-hosted, native <video>, no JS sizing needed
+   (object-fit: cover handles that in CSS). Just respect reduced-motion. ---------- */
+(function setUpBackgroundVideos() {
+  const videos = document.querySelectorAll("video[data-autoplay]");
+  if (!videos.length) return;
+
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  videos.forEach((video) => {
+    if (prefersReduced) {
+      // Leave it paused on its first frame — no motion, just a still backdrop.
+      return;
+    }
+    video.play().catch(() => {
+      // Autoplay can still be blocked in some contexts; the static first frame
+      // (or fallback background-color) is a fine fallback either way.
+    });
+  });
 })();
 
 (function scrollReveal() {
