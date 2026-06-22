@@ -83,12 +83,13 @@
         <p>From first launch to their first tap — here's exactly what it looks like.</p>
       </div>
       <div class="video-frame" id="video-frame">
-        <div class="video-fallback">
-          <div class="play-circle">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 3L19 12L5 21V3Z" fill="#fff"/></svg>
-          </div>
-          <p>Intro video coming this week</p>
-        </div>
+        <video
+          controls
+          playsinline
+          preload="metadata"
+          poster="assets/intro-poster.jpg">
+          <source src="assets/intro-demo.mp4" type="video/mp4" />
+        </video>
       </div>
     </div>
   </section>

@@ -1,29 +1,9 @@
 /* ===========================================================
    PandaDash AAC — main.js
-   1) Drop in the YouTube video ID below once it's live (demo video).
-   2) Background videos are self-hosted <video> tags — see index.html.
-   3) Everything else is a light scroll-reveal, nothing fancy.
+   1) The demo video and both background videos are self-hosted
+      <video> tags now — see index.html. No JS needed to set them up.
+   2) Everything else is a light scroll-reveal, nothing fancy.
    =========================================================== */
-
-// STEP TO DO LATER: paste your YouTube video ID between the quotes,
-// e.g. const INTRO_VIDEO_ID = "dQw4w9WgXcQ";
-const INTRO_VIDEO_ID = "";
-
-(function setUpIntroVideo() {
-  const frame = document.getElementById("video-frame");
-  if (!frame) return;
-
-  if (INTRO_VIDEO_ID) {
-    frame.innerHTML = `<iframe
-      src="https://www.youtube.com/embed/${INTRO_VIDEO_ID}?rel=0&modestbranding=1"
-      title="PandaDash AAC — intro video"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-      loading="lazy"></iframe>`;
-  }
-  // If no ID is set yet, the static fallback already in the HTML is shown.
-})();
 
 /* ---------- Nav: transparent over the hero video, solid once scrolled ---------- */
 (function navScrollState() {
